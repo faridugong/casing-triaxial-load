@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casing Triaxial Load</title>
+  <link rel="stylesheet" href="assets/style/style.css" />
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="jumbotron">
+      <h1>Casing Triaxial Load Calculation</h1>
+      <p>
+        Calculate triaxial force are important to choose the best casing in
+        drilling
+      </p>
+      <p>in this website we will calculate :</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#"> Burst </a></li>
+        <li><a href="#"> Collapse</a></li>
+        <li><a href="#"> Tention</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="menu col-30">
+      <h2>Input</h2>
+      <div>
+        <h3>Surface</h3>
+        <div class="container__form">
+          <div class="container__form__children">
+            <input type="number" id="ppgInputSurface" />
+            <label for="ppgInputSurface">mud density(ppg)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="CSDinputSurface" />
+            <label for="CSDinputSurface">CSD(ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="TVDsurface" />
+            <label for="TVDsurface">TVD(ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="TDsurface" />
+            <label for="TDsurface">TD(ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="formationPressureSurface" />
+            <label for="formationPressureSurface">Pf(psi)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="gasGradientSurface" />
+            <label for="gasGradientSurface">G</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="insideDiameterSurface" />
+            <label for="insideDiameterSurface">ID(in)</label>
+          </div>
+          <div id="outsideDiameterSurface">
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="casingWeightSurface" />
+            <label for="casingWeightSurface">Wn(lb/ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="casingThicknessSurface" />
+            <label for="casingThicknessSurface">t(in)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="doglegSeveritySurface" />
+            <label for="doglegSeveritySurface">(degrees/100ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="testPressureSurface" />
+            <label for="testPressureSurface">Test Pressure</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorSurfaceB" />
+            <label for="safetyFactorSurfaceB">SF Burst</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorSurfaceC" />
+            <label for="safetyFactorSurfaceC">SF Collapse</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorSurfaceT" />
+            <label for="safetyFactorSurfaceT">SF Tention</label>
+          </div>
+          <button class="container__form__button" id="button-submit-surface">Submit</button>
+        </div>
+      </div>
+      <div>
+        <h3>Intermediate</h3>
+        <div class="container__form">
+          <div class="container__form__children">
+            <input type="number" id="ppgInputIntermediate" />
+            <label for="ppgInputIntermediate">mud density(ppg)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="CSDinputIntermediate" />
+            <label for="CSDinputIntermediate">CSD(ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="TVDintermediate" />
+            <label for="TVDintermediate">TVD(ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="TDintermediate" />
+            <label for="TDintermediate">TD(ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="formationPressureIntermediate" />
+            <label for="formationPressureIntermediate">Pf(psi)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="gasGradientIntermediate" />
+            <label for="gasGradientIntermediate">G</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="insideDiameterIntermediate" />
+            <label for="insideDiameterIntermediate">ID(in)</label>
+          </div>
+          <div id="outsideDiameterIntermediate">
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="casingWeightIntermediate" />
+            <label for="casingWeightIntermediate">Wn(lb/ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="casingThicknessIntermediate" />
+            <label for="casingThicknessIntermediate">t(in)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="doglegSeverityIntermediate" />
+            <label for="doglegSeverityIntermediate">(degrees/100ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="testPressureIntermediate" />
+            <label for="testPressureIntermediate">Test Pressure</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorIntermediateB" />
+            <label for="safetyFactorIntermediateB">SF Burst</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorIntermediateC" />
+            <label for="safetyFactorIntermediateC">SF Collapse</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorIntermediateT" />
+            <label for="safetyFactorIntermediateT">SF Tention</label>
+          </div>
+          <button class="container__form__button" id="button-submit-intermediate">Submit</button>
+        </div>
+      </div>
+
+      <div>
+        <h3>Production</h3>
+        <div class="container__form">
+          <div class="container__form__children">
+            <input type="number" id="ppgInputProduction" />
+            <label for="ppgInputProduction">mud density(ppg)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="CSDinputProduction" />
+            <label for="CSDinputProduction">CSD(ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="formationPressureProduction" />
+            <label for="formationPressureProduction">Pf(psi)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="gasGradientProduction" />
+            <label for="gasGradientProduction">G</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="completionDensity" />
+            <label for="completionDensity">Pp(ppg)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="insideDiameterProduction" />
+            <label for="insideDiameterProduction">ID(in)</label>
+          </div>
+          <div id="outsideDiameterProduction">
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="casingWeightProduction" />
+            <label for="casingWeightProduction">Wn(lb/ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="casingThicknessProduction" />
+            <label for="casingThicknessProduction">t(in)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="doglegSeverityProduction" />
+            <label for="doglegSeverityProduction">(degrees/100ft)</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="testPressureProduction" />
+            <label for="testPressureProduction">Test Pressure</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorProductionB" />
+            <label for="safetyFactorProductionB">SF Burst</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorProductionC" />
+            <label for="safetyFactorProductionC">SF Collapse</label>
+          </div>
+          <div class="container__form__children">
+            <input type="number" id="safetyFactorProductionT" />
+            <label for="safetyFactorProductionT">SF Tention</label>
+          </div>
+          <button class="container__form__button" id="button-submit-production">submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-50">
+      <h2>Result</h2>
+      <div class="tab">
+        <button id="open-tab-surface" class="tablinks">
+          Surface
+        </button>
+        <button id="open-tab-intermediate" class="tablinks">
+          Intermediate
+        </button>
+        <button id="open-tab-production" class="tablinks">
+          Production
+        </button>
+      </div>
+      <div id="Surface" class="tabcontent">
+        <div id="plotSurfaceBurst"></div>
+        <div id="plotSurfaceTention"></div>
+        <div id="plotSurfaceCollapse"></div>
+      </div>
+      <div id="Intermediate" class="tabcontent">
+        <div id="plotIntermediateBurst"></div>
+        <div id="plotIntermediateTention"></div>
+        <div id="plotIntermediateCollapse"></div>
+      </div>
+      <div id="Production" class="tabcontent">
+        <div id="plotProductionBurst"></div>
+        <div id="plotProductionTention"></div>
+        <div id="plotProductionCollapse"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>
+      Fathoni Farid Ma'ruf (113190085) &#169; Teknik Perminyakan UPN "Veteran"
+      Yogyakarta
+    </p>
+    <script type="module" src="assets/javascript/index.js"></script>
+    <script type="module" src="assets/javascript/data/data.js"></script>
+    <script type="module" src="assets/javascript/data/constant.js"></script>
+    <script type="module" src="assets/javascript/components/tab.js"></script>
+    <script type="module" src="assets/javascript/components/select.js"></script>
+    <script type="module" src="assets/javascript/components/button.js"></script>
+    <script type="module" src="assets/javascript/calculation/surface.js"></script>
+    <script type="module" src="assets/javascript/calculation/intermediate.js"></script>
+    <script type="module" src="assets/javascript/calculation/production.js"></script>
+</body>
+
+</html>

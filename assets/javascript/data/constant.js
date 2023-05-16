@@ -1,7 +1,7 @@
-import { constant } from "./data.js";
+import { constant } from './data.js';
 
 export const newConstant = constant;
-newConstant.map((v) => {
+newConstant.forEach((v) => {
   v.OD = parseFloat(v.OD);
   v.NOMINAL_WEIGHT = parseFloat(v.NOMINAL_WEIGHT);
   v.COLLAPSE_PRESSURE = parseFloat(v.COLLAPSE_PRESSURE);
