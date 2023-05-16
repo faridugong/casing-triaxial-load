@@ -1,0 +1,15 @@
+
+//burst resistance
+ Burst=1.75* Ym *t/OD
+
+Ym=kekuatan tarik minimum casing
+t=tebal dinding casing
+
+//tention
+Ften(lb) = 0.7854 x Ym (De²- Di²)
+
+// bahan bimbingan
+var surfaceBurstResistance =
+    (2 * YmSurface * tSurface) / outsideDiameterSurface;
+var YmSurfaceBurst = surfaceBurstResistance * outsideDiameterSurface/(tSurface*2);
+  
